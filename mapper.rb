@@ -28,7 +28,7 @@ class Mapper
           data[column][:data].push({:row => row, :count => count})
           async_counter += 1
           if async_counter == upto
-            @callback.call data # done, return
+            @callback.call data.values # done, return
           end
         }
         
@@ -53,7 +53,7 @@ class Mapper
           data[column][:count] = count
           async_counter += 1
           if async_counter == upto
-            @callback.call data # done, return
+            @callback.call data.values # done, return
           end
         }
       else # no filters, just do scard
@@ -61,7 +61,7 @@ class Mapper
           data[column][:count] = count
           async_counter += 1
           if async_counter == upto
-            @callback.call data # done, return
+            @callback.call data.values # done, return
           end
         }
       end
