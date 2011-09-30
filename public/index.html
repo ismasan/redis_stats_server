@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <h1>Test</h1>
+    
+    <script type="text/javascript">
+        (function() {
+          var t   = document.createElement('script');
+          t.type  = 'text/javascript';
+          t.async = true;
+          t.id    = 'tiny-tracker';
+          t.setAttribute('data-account-id', 'pilpil');
+          t.src = 'http://ismasan.local:81/track.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(t, s);
+        })();
+      </script>
+      
+  </body>
+</html>
