@@ -95,7 +95,12 @@ class Api < EM::Connection
     Mapper.new(:columns => columns, :rows => rows, :filters => filters) do |data|
       @response.content_type 'application/json'
       @response.status = 200
-      @response.content = JSON.unparse(data)
+      json = JSON.unparse(data)
+      if clbk = @params['callback'] 
+        @response.content_type 'text/javascript'
+        json = "#{clbk}(#{json})"
+      end
+      @response.content = json
       @response.send_response
     end
     
